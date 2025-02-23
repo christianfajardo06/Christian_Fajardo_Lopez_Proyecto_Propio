@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style1.css">
+</head>
+<body id="cuerpo">
+    <header id="cabezero">
+        <h1>Christian Fajarado López</h1>
+        <h1>La Movie Outfit - Pantalones</h1>
+        <nav id="paginas">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html">Camisetas</a></li>
+                <li><a href="pantalones.html">Pantalones</a></li>
+                <li><a href="sudaderas.html">Sudaderas</a></li>
+                <li><a href="calzado.html">Calzado</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="explusive">
+        <section id="explusive">
+            <h2>Explora nuestros pantalones largos</h2>
+            <div class="producto">
+                <img src="img/img4.webp">
+                <p>Pantalón de chandal para vestir- 65€</p>
+            </div>
+            <div class="producto">
+                <img src="img/img5.webp">
+                <p>Pantalón vaquero azul fuerte con bordado en la parte de atras - 105€</p>
+            </div>
+            <div class="producto">
+                <img src="img/img6.webp">
+                <p>Pantalón vaquero basico con estilo baggy- 99€</p>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>Formulario de Contacto</h2>
+            <form action="#" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Tu correo" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer id="pie">
+        <p>&copy; 2025 La Movie Outfit</p>
+    </footer>
+  
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const formulario = document.querySelector("form"); // Selecciona el formulario
+    
+            formulario.addEventListener("submit", function (event) {
+                event.preventDefault(); // Evita que la página se recargue
+    
+                // Si ya existe un mensaje, lo elimina antes de agregar uno nuevo
+                const mensajeExistente = document.getElementById("mensaje-confirmacion");
+                if (mensajeExistente) {
+                    mensajeExistente.remove();
+                }
+    
+                // Crea el mensaje de confirmación
+                const mensaje = document.createElement("div");
+                mensaje.id = "mensaje-confirmacion"; // ID único para evitar duplicados
+                mensaje.textContent = "✅ Genial, hemos recibido su mensaje. Le contestaremos pronto. ¡Un saludo!";
+                mensaje.style.backgroundColor = "#4CAF50"; // Color verde
+                mensaje.style.color = "white";
+                mensaje.style.padding = "15px";
+                mensaje.style.textAlign = "center";
+                mensaje.style.fontSize = "18px";
+                mensaje.style.fontWeight = "bold";
+                mensaje.style.position = "fixed";
+                mensaje.style.top = "0"; // Posición arriba
+                mensaje.style.left = "50%";
+                mensaje.style.transform = "translateX(-50%)";
+                mensaje.style.width = "100%";
+                mensaje.style.maxWidth = "600px"; // Limita el ancho
+                mensaje.style.borderRadius = "5px";
+                mensaje.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.2)";
+                mensaje.style.zIndex = "1000";
+                mensaje.style.opacity = "1";
+                mensaje.style.transition = "opacity 0.5s ease";
+    
+                // Agrega el mensaje al cuerpo de la página
+                document.body.prepend(mensaje);
+    
+                // Borra el mensaje después de 4 segundos con efecto de desvanecimiento
+                setTimeout(() => {
+                    mensaje.style.opacity = "0"; // Se desvanece
+                    setTimeout(() => {
+                        mensaje.remove(); // Lo elimina después de desvanecerse
+                    }, 500);
+                }, 4000);
+    
+                // Limpia los campos del formulario después de enviar
+                formulario.reset();
+            });
+        });
+    </script>    
+    
+</body>
+</html>
